@@ -29,10 +29,11 @@ public class Ejercicio6 {
     }
 
     private static void cargarSopa(char[][] sopa) {
-        // Se inicializa la sopa de letras con caracteres aleatorios
-        inicializarSopa(sopa);
+
         // Se cargan las palabras ingresadas por el usuario en la sopa de letras
         cargarPalabras(sopa);
+        // Se inicializa la sopa de letras con caracteres aleatorios
+        inicializarSopa(sopa);
     }
 
     private static void cargarPalabras(char[][] sopa) {
@@ -68,7 +69,9 @@ public class Ejercicio6 {
     private static void inicializarSopa(char[][] sopa) {
         for (int i = 0; i < sopa.length; i++) {
             for (int j = 0; j < sopa[0].length; j++) {
-                sopa[i][j] = String.valueOf((Math.random() * 9)).charAt(0);
+                if (sopa[i][j] == '\u0000') {
+                    sopa[i][j] = String.valueOf((Math.random() * 9)).charAt(0);
+                }
             }
         }
     }
